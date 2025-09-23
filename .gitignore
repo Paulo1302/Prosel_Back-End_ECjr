@@ -1,0 +1,27 @@
+# Arquivo .gitignore
+
+# Ambiente Virtual
+# Ignora a pasta do ambiente virtual para não enviar bibliotecas instaladas
+venv/
+*.venv
+env/
+.env/
+
+# Arquivos de Cache do Python
+# Ignora arquivos temporários que o Python cria
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos de configuração com segredos
+# IMPORTANTE: Nunca envie suas senhas e chaves de API
+.env
+
+# Arquivos de banco de dados locais (se usar SQLite para testes, por exemplo)
+*.db
+*.sqlite3
+
+# Arquivos de IDE e editores
+.vscode/
+.idea/
