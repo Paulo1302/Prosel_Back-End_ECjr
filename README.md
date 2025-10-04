@@ -1,69 +1,66 @@
-# Prosel_Back-End_ECjr
-API de Gerenciamento de Empresas Clientes - Ecomp Jr.
- Sobre o Projeto
+# API de Gestão de Empresas Clientes - Ecomp Jr.
 
-Esta API foi desenvolvida como parte de um processo seletivo para a Ecomp Jr., com o objetivo de criar um sistema centralizado para o gerenciamento de empresas clientes. A aplicação resolve o desafio de manter informações consistentes e acessíveis, substituindo o uso de planilhas descentralizadas por uma solução robusta, escalável e segura.
+## Sobre o Projeto
 
-O projeto foi construído em FastAPI, seguindo as melhores práticas de desenvolvimento de software, incluindo uma arquitetura em camadas (Repositories, Services, Routers) para garantir um código limpo, de fácil manutenção e testável.
- Funcionalidades
+Esta API foi desenvolvida como parte de um processo seletivo para a Ecomp Jr., com o objetivo de criar um sistema centralizado para a gestão de empresas clientes. A aplicação resolve o desafio de manter informações consistentes e acessíveis, substituindo o uso de folhas de cálculo descentralizadas por uma solução robusta, escalável e segura.
 
-    CRUD Completo para Empresas: Funcionalidades para Criar, Ler, Atualizar e Deletar empresas.
+O projeto foi construído em FastAPI, seguindo as melhores práticas de desenvolvimento de software, incluindo uma arquitetura em camadas (Repositories, Services, Routers) e segurança com **autenticação baseada em tokens JWT**.
 
-    Consultas Avançadas:
+---
 
-        Filtragem de empresas por cidade e ramo_atuacao.
+## Funcionalidades
 
-        Busca textual (parcial e insensível a maiúsculas/minúsculas) pelo nome da empresa.
+- **Autenticação de Administradores**: Sistema de registo (`/register`) e login (`/login`) para administradores.
+- **Proteção de Rotas com JWT**: Todas as rotas de gestão de empresas (`/empresas`) são protegidas e exigem um token de autenticação válido.
+- **CRUD Completo para Empresas**: Funcionalidades para Criar, Ler, Atualizar e Apagar empresas.
+- **Consultas Avançadas**:
+  - Filtragem de empresas por `cidade` e `ramo_atuacao`.
+  - Pesquisa textual (parcial e insensível a maiúsculas/minúsculas) pelo `nome` da empresa.
+- **Tratamento de Erros**: Respostas claras e códigos de status HTTP apropriados para validações de dados (CNPJ/email duplicado) e recursos não encontrados.
+- **Arquitetura Profissional**: Código organizado no padrão Repository, Service e Router para separação de responsabilidades.
+- **Gestão de Configurações**: Uso de variáveis de ambiente (`.env`) para proteger dados sensíveis.
 
-    Tratamento de Erros: Respostas claras e códigos de status HTTP apropriados para validações de dados (CNPJ/email duplicado) e recursos não encontrados.
+---
 
-    Arquitetura Profissional: Código organizado no padrão Repository, Service e Router para separação de responsabilidades.
+## Tecnologias Utilizadas
 
-    Gestão de Configurações: Uso de variáveis de ambiente (.env) para proteger dados sensíveis, como as credenciais do banco de dados.
+- **Backend:**
+  - [Python 3.10+](https://www.python.org/)
+  - [FastAPI](https://fastapi.tiangolo.com/) - Framework web de alta performance.
+  - [Uvicorn](https://www.uvicorn.org/) - Servidor ASGI.
+- **Base de Dados:**
+  - [PostgreSQL](https://www.postgresql.org/) - Base de dados relacional.
+  - [SQLAlchemy](https://www.sqlalchemy.org/) - ORM para manipulação de dados em Python.
+  - [Psycopg2](https://www.psycopg.org/docs/) - Driver de conexão com o PostgreSQL.
+- **Segurança e Autenticação:**
+  - [JWT (JSON Web Tokens)](https://jwt.io/)
+  - [Passlib](https://passlib.readthedocs.io/en/stable/) com `bcrypt` para hashing de senhas.
+  - [OAuth2](https://oauth.net/2/) Password Bearer Flow.
+- **Validação e Configuração:**
+  - [Pantic](https://pydantic-docs.helpmanual.io/)
+  - [Python-Dotenv](https://pypi.org/project/python-dotenv/) - Para gestão de variáveis de ambiente.
 
- Tecnologias Utilizadas
+---
 
-    Backend:
+## Como Executar o Projeto
 
-        Python 3.10+
+Siga os passos abaixo para configurar e executar a aplicação no seu ambiente local.
 
-        FastAPI - Framework web de alta performance.
+### Pré-requisitos
 
-        Uvicorn - Servidor ASGI.
+- **Python 3.10** ou superior.
+- **PostgreSQL** instalado e em execução.
+- **Git** para clonar o repositório.
 
-    Banco de Dados:
-
-        PostgreSQL - Banco de dados relacional.
-
-        SQLAlchemy - ORM para manipulação de dados em Python.
-
-        Psycopg2 - Driver de conexão com o PostgreSQL.
-
-    Validação e Configuração:
-
-        Pydantic - Para validação de dados e configurações.
-
-        Python-Dotenv - Para gerenciamento de variáveis de ambiente.
-
- Como Executar o Projeto
-
-Siga os passos abaixo para configurar e executar a aplicação em seu ambiente local.
-Pré-requisitos
-
-    Python 3.10 ou superior.
-
-    PostgreSQL instalado e em execução.
-
-    Git para clonar o repositório.
-
-1. Clone o Repositório
-
+### 1. Clone o Repositório
+```bash
 git clone [https://github.com/Paulo1302/Prosel_Back-End_ECjr.git](https://github.com/Paulo1302/Prosel_Back-End_ECjr.git)
 cd Prosel_Back-End_ECjr
 
 2. Crie e Ative um Ambiente Virtual
 
 É uma boa prática isolar as dependências do projeto.
+Bash
 
 # Criar o ambiente virtual
 python -m venv venv
@@ -76,160 +73,109 @@ source venv/bin/activate
 
 3. Instale as Dependências
 
-O arquivo requirements.txt contém todas as bibliotecas necessárias.
+O ficheiro requirements.txt contém todas as bibliotecas necessárias.
+Bash
 
 pip install -r requirements.txt
 
-4. Configure o Banco de Dados
+4. Configure a Base de Dados e as Chaves de Segurança
 
-    Crie um banco de dados no seu PostgreSQL (ex: clientdb).
+    Crie uma base de dados no seu PostgreSQL (ex: clientdb).
 
-    Renomeie o arquivo .env.example (se houver) para .env ou crie um novo.
+    Crie um ficheiro .env na raiz do projeto e adicione as seguintes variáveis, substituindo pelos seus dados:
 
-    Edite o arquivo .env com suas credenciais do PostgreSQL:
+Snippet de código
 
-# Exemplo de arquivo .env
-DATABASE_URL="postgresql://SEU_USUARIO:SUA_SENHA@localhost:5432/NOME_DO_SEU_BANCO"
+DATABASE_URL="postgresql://SEU_UTILIZADOR:SUA_SENHA@localhost:5432/NOME_DA_SUA_BD"
+SECRET_KEY="sua-chave-secreta-super-segura-e-dificil-de-adivinhar"
+ALGORITHM="HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 5. Execute a Aplicação
 
 Com o ambiente virtual ativado, inicie o servidor Uvicorn:
+Bash
 
 uvicorn app.main:app --reload
 
-O servidor estará rodando em http://127.0.0.1:8000.
-6. Acesse a Documentação Interativa
+O servidor estará a correr em http://127.0.0.1:8000.
 
-O FastAPI gera automaticamente uma documentação interativa (Swagger UI). Acesse-a para testar todos os endpoints:
+6. Aceda à Documentação Interativa
+
+O FastAPI gera automaticamente uma documentação interativa (Swagger UI). Aceda a ela para testar todos os endpoints:
 http://127.0.0.1:8000/docs
-📖 API - Documentação dos Endpoints
 
-Todos os endpoints estão sob o prefixo /empresas.
-POST /empresas/ - Cadastrar Nova Empresa
+API - Guia de Utilização e Endpoints
 
-Cria uma nova empresa no banco de dados. O CNPJ e o E-mail de Contato devem ser únicos.
+Autenticação
 
-Exemplo de Requisição (Body):
+POST /register - Registar Administrador
 
-{
-  "nome": "InovaTech Soluções",
-  "cnpj": "11222333000144",
-  "cidade": "Feira de Santana",
-  "ramo_atuacao": "Tecnologia",
-  "telefone": "75999998888",
-  "email_contato": "contato@inovatech.com"
-}
+Cria um novo utilizador administrador.
 
-Exemplo de Resposta (Status 201 - Created):
+Exemplo de Pedido (Body):
+JSON
 
 {
-  "nome": "InovaTech Soluções",
-  "cnpj": "11222333000144",
-  "cidade": "Feira de Santana",
-  "ramo_atuacao": "Tecnologia",
-  "telefone": "75999998888",
-  "email_contato": "contato@inovatech.com",
-  "id": 1,
-  "data_cadastro": "2025-10-03T18:30:00.123456Z"
+  "username": "admin",
+  "password": "senhaForte123"
 }
+
+POST /login - Obter Token de Acesso
+
+Faz o login e retorna um token JWT para ser usado nas rotas protegidas.
+
+Exemplo de Pedido (form-data):
+
+    username: admin
+
+    password: senhaForte123
+
+Exemplo de Resposta:
+JSON
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer"
+}
+
+Rotas Protegidas de Empresas
+
+Para usar os endpoints abaixo, precisa primeiro de obter um access_token na rota /login e enviá-lo no cabeçalho Authorization de cada pedido.
+
+Como autorizar no Swagger UI:
+
+    Execute a rota /login e copie o access_token retornado.
+
+    Clique no botão "Authorize" no topo da página.
+
+    Na janela que abrir, cole o token no formato Bearer SEU_TOKEN_AQUI.
+
+    Agora pode testar todas as rotas de /empresas.
+
+POST /empresas/ - Registar Nova Empresa
+
+Cria uma nova empresa. (Requer autenticação)
 
 GET /empresas/ - Listar Empresas
 
-Retorna uma lista de todas as empresas cadastradas. Suporta filtros via query parameters.
-
-Parâmetros de Consulta (Opcionais):
-
-    nome (str): Busca empresas por nome (busca parcial).
-
-    cidade (str): Filtra empresas por cidade (busca parcial).
-
-    ramo_atuacao (str): Filtra empresas por ramo de atuação (busca parcial).
-
-    skip (int): Número de registros a pular (para paginação). Padrão: 0.
-
-    limit (int): Número máximo de registros a retornar. Padrão: 100.
-
-Exemplo de Requisição:
-GET /empresas/?cidade=Feira&ramo_atuacao=Tecnologia
-
-Exemplo de Resposta (Status 200 - OK):
-
-[
-  {
-    "nome": "InovaTech Soluções",
-    "cnpj": "11222333000144",
-    "cidade": "Feira de Santana",
-    "ramo_atuacao": "Tecnologia",
-    "telefone": "75999998888",
-    "email_contato": "contato@inovatech.com",
-    "id": 1,
-    "data_cadastro": "2025-10-03T18:30:00.123456Z"
-  }
-]
+Retorna uma lista de empresas, com suporte a filtros. (Requer autenticação)
 
 GET /empresas/{empresa_id} - Obter Detalhes de uma Empresa
 
-Busca e retorna os dados de uma única empresa pelo seu id.
+Procura uma empresa pelo id. (Requer autenticação)
 
-Exemplo de Requisição:
-GET /empresas/1
-
-Exemplo de Resposta (Status 200 - OK):
-
-{
-  "nome": "InovaTech Soluções",
-  "cnpj": "11222333000144",
-  "cidade": "Feira de Santana",
-  "ramo_atuacao": "Tecnologia",
-  "telefone": "75999998888",
-  "email_contato": "contato@inovatech.com",
-  "id": 1,
-  "data_cadastro": "2025-10-03T18:30:00.123456Z"
-}
-
-Se a empresa não for encontrada, retornará um erro 404 Not Found.
 PUT /empresas/{empresa_id} - Atualizar uma Empresa
 
-Atualiza os dados de uma empresa existente. Os campos id, cnpj e data_cadastro não podem ser alterados.
+Atualiza os dados de uma empresa. (Requer autenticação)
 
-Exemplo de Requisição (Body):
-Você pode enviar apenas os campos que deseja alterar.
+DELETE /empresas/{empresa_id} - Apagar uma Empresa
 
-{
-  "cidade": "Salvador",
-  "telefone": "71988887777"
-}
+Remove uma empresa da base de dados. (Requer autenticação)
 
-Exemplo de Resposta (Status 200 - OK):
+Convenção de Commits
 
-{
-  "nome": "InovaTech Soluções",
-  "cnpj": "11222333000144",
-  "cidade": "Salvador",
-  "ramo_atuacao": "Tecnologia",
-  "telefone": "71988887777",
-  "email_contato": "contato@inovatech.com",
-  "id": 1,
-  "data_cadastro": "2025-10-03T18:30:00.123456Z"
-}
-
-Se a empresa não for encontrada, retornará um erro 404 Not Found.
-DELETE /empresas/{empresa_id} - Excluir uma Empresa
-
-Remove uma empresa do banco de dados pelo seu id.
-
-Exemplo de Requisição:
-DELETE /empresas/1
-
-Resposta:
-
-    Status 204 No Content: Em caso de sucesso, o servidor retorna uma resposta vazia.
-
-    Status 404 Not Found: Se a empresa não for encontrada.
-
-📝 Convenção de Commits
-
-Este projeto utiliza a especificação Conventional Commits para padronizar as mensagens de commit.
+Este projeto utiliza a especificação Conventional Commits.
 
 Tipos mais comuns:
 
@@ -246,6 +192,6 @@ Tipos mais comuns:
     chore: Tarefas de manutenção (atualização de dependências, etc.).
 
 Exemplo:
+Bash
 
-git commit -m "feat: Adiciona endpoint para cadastro de empresas"
-
+git commit -m "feat: Adiciona endpoint para registo de empresas"
