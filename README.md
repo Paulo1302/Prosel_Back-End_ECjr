@@ -108,41 +108,41 @@ http://127.0.0.1:8000/docs
 API - Guia de Utilização e Endpoints
 
 Autenticação
-```bash
 
-POST /register - Registar Administrador
+
+`POST /register` - Registar Administrador
 
 Cria um novo utilizador administrador.
 
 Exemplo de Pedido (Body):
 JSON
-
+```bash
 {
   "username": "admin",
   "password": "senhaForte123"
 }
-
-POST /login - Obter Token de Acesso
+```
+`POST /login` - Obter Token de Acesso
 
 Faz o login e retorna um token JWT para ser usado nas rotas protegidas.
 
 Exemplo de Pedido (form-data):
-
+```bash
     username: admin
 
     password: senhaForte123
-
+```
 Exemplo de Resposta:
-JSON
-
+`JSON`
+```bash
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "token_type": "bearer"
 }
-
+```
 Rotas Protegidas de Empresas
 
-Para usar os endpoints abaixo, precisa primeiro de obter um access_token na rota /login e enviá-lo no cabeçalho Authorization de cada pedido.
+Para usar os endpoints abaixo, precisa primeiro de obter um access_token na rota `/login` e enviá-lo no cabeçalho Authorization de cada pedido.
 
 Como autorizar no Swagger UI:
 
@@ -154,22 +154,22 @@ Como autorizar no Swagger UI:
 
     Agora pode testar todas as rotas de /empresas.
 
-POST /empresas/ - Registar Nova Empresa
+`POST /empresas/` - Registar Nova Empresa
 
 Cria uma nova empresa. (Requer autenticação)
 
-GET /empresas/ - Listar Empresas
+`GET /empresas/` - Listar Empresas
 
 Retorna uma lista de empresas, com suporte a filtros. (Requer autenticação)
 
-GET /empresas/{empresa_id} - Obter Detalhes de uma Empresa
+`GET /empresas/{empresa_id}` - Obter Detalhes de uma Empresa
 
 Procura uma empresa pelo id. (Requer autenticação)
 
-PUT /empresas/{empresa_id} - Atualizar uma Empresa
+`PUT /empresas/{empresa_id}` - Atualizar uma Empresa
 
 Atualiza os dados de uma empresa. (Requer autenticação)
 
-DELETE /empresas/{empresa_id} - Apagar uma Empresa
+`DELETE /empresas/{empresa_id}` - Apagar uma Empresa
 
 Remove uma empresa da base de dados. (Requer autenticação)
