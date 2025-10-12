@@ -56,12 +56,9 @@ Siga os passos abaixo para configurar e executar a aplicação no seu ambiente l
 ```bash
 git clone [https://github.com/Paulo1302/Prosel_Back-End_ECjr.git](https://github.com/Paulo1302/Prosel_Back-End_ECjr.git)
 cd Prosel_Back-End_ECjr
-
-2. Crie e Ative um Ambiente Virtual
-
-É uma boa prática isolar as dependências do projeto.
-Bash
-
+```
+### 2. Crie e Ative um Ambiente Virtual
+```bash
 # Criar o ambiente virtual
 python -m venv venv
 
@@ -70,16 +67,16 @@ venv\Scripts\activate
 
 # Ativar no macOS/Linux
 source venv/bin/activate
-
-3. Instale as Dependências
-
+```
+### 3. Instale as Dependências
+```bash
 O ficheiro requirements.txt contém todas as bibliotecas necessárias.
 Bash
 
 pip install -r requirements.txt
-
-4. Configure a Base de Dados e as Chaves de Segurança
-
+```
+### 4. Configure a Base de Dados e as Chaves de Segurança
+```bash
     Crie uma base de dados no seu PostgreSQL (ex: clientdb).
 
     Crie um ficheiro .env na raiz do projeto e adicione as seguintes variáveis, substituindo pelos seus dados:
@@ -90,18 +87,18 @@ DATABASE_URL="postgresql://SEU_UTILIZADOR:SUA_SENHA@localhost:5432/NOME_DA_SUA_B
 SECRET_KEY="sua-chave-secreta-super-segura-e-dificil-de-adivinhar"
 ALGORITHM="HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-5. Execute a Aplicação
-
+```
+### 5. Execute a Aplicação
+```bash
 Com o ambiente virtual ativado, inicie o servidor Uvicorn:
 Bash
 
 uvicorn app.main:app --reload
 
 O servidor estará a correr em http://127.0.0.1:8000.
-
-6. Aceda à Documentação Interativa
-
+```
+### 6. Inicie à Documentação Interativa
+```bash
 O FastAPI gera automaticamente uma documentação interativa (Swagger UI). Aceda a ela para testar todos os endpoints:
 http://127.0.0.1:8000/docs
 
