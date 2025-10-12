@@ -172,26 +172,3 @@ Atualiza os dados de uma empresa. (Requer autenticação)
 DELETE /empresas/{empresa_id} - Apagar uma Empresa
 
 Remove uma empresa da base de dados. (Requer autenticação)
-
-Convenção de Commits
-
-Este projeto utiliza a especificação Conventional Commits.
-
-Tipos mais comuns:
-
-    feat: Adição de uma nova funcionalidade.
-
-    fix: Correção de um bug.
-
-    docs: Alterações na documentação.
-
-    style: Alterações de formatação que não afetam o código.
-
-    refactor: Refatoração de código que não altera a funcionalidade externa.
-
-    chore: Tarefas de manutenção (atualização de dependências, etc.).
-
-Exemplo:
-Bash
-
-git commit -m "feat: Adiciona endpoint para registo de empresas"
