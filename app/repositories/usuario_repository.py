@@ -39,4 +39,3 @@ class UsuarioRepository:
         db.commit()         # Persiste a transação na base de dados.
         db.refresh(db_user) # Atualiza o objeto com os dados da BD (ex: ID gerado).
         return db_user
-

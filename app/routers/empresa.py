@@ -73,4 +73,3 @@ def delete_empresa(empresa_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Empresa não encontrada.")
     # Em caso de sucesso, retorna uma resposta 204 No Content, sem corpo.
     return
-

@@ -38,4 +38,3 @@ def read_root():
     Retorna uma mensagem de boas-vindas.
     """
     return {"message": "Bem-vindo à API de Gestão de Empresas!"}
-

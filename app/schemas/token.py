@@ -23,4 +23,3 @@ class TokenData(BaseModel):
     # É definido como Optional porque o payload pode não conter este campo,
     # permitindo uma validação explícita no código.
     username: Optional[str] = None
-

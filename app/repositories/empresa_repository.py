@@ -97,4 +97,3 @@ class EmpresaRepository:
             db.commit()
             return True
         return False
-

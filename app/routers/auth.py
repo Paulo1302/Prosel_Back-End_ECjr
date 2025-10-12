@@ -43,4 +43,3 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
     """
     service = AuthService(db)
     return service.login_for_access_token(form_data)
-

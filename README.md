@@ -173,3 +173,4 @@ Atualiza os dados de uma empresa. (Requer autenticação)
 `DELETE /empresas/{empresa_id}` - Apagar uma Empresa
 
 Remove uma empresa da base de dados. (Requer autenticação)
+

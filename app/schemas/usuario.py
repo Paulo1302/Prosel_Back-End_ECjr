@@ -38,4 +38,3 @@ class Usuario(UsuarioBase):
         # leia os dados diretamente de um objeto ORM do SQLAlchemy,
         # facilitando a conversão do modelo da base de dados (models.Usuario) para este schema.
         from_attributes = True
-

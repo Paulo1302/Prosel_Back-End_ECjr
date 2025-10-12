@@ -74,4 +74,3 @@ class AuthService:
         
         # Retorna o token no formato esperado pelo padrão OAuth2.
         return {"access_token": access_token, "token_type": "bearer"}
-

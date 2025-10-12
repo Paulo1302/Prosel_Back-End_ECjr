@@ -56,4 +56,3 @@ class Empresa(EmpresaBase):
         # leia os dados diretamente de um objeto ORM do SQLAlchemy,
         # facilitando a conversão do modelo da base de dados (models.Empresa) para o schema Pydantic.
         from_attributes = True
-

@@ -58,4 +58,3 @@ class Usuario(Base):
     # Esta coluna irá armazenar a representação da senha após passar pelo algoritmo de hashing (bcrypt).
     # Nunca se deve armazenar senhas em texto plano.
     hashed_password = Column(String, nullable=False)
-

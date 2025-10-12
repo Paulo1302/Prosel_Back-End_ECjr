@@ -68,4 +68,3 @@ class EmpresaService:
         
         # Delega a atualização à camada de repositório.
         return self.repo.update(self.db, empresa_id, empresa_update)
-

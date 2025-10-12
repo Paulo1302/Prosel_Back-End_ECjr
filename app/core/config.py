@@ -38,4 +38,3 @@ class Settings:
 # Este padrão (singleton) garante que as configurações sejam carregadas apenas uma vez
 # e possam ser importadas e utilizadas de forma consistente em toda a aplicação.
 settings = Settings()
-
